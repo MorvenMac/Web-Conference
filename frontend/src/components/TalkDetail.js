@@ -9,7 +9,7 @@ export default function TalkDetail({ talk }) {
             <p>
                 <strong>Description:</strong> {talk.description}
             </p>
-            <RateTalk talkId={talk.id} />
+            <RateTalk talkId={talk.id} talkTitle={talk.title} />
         </div>
     );
 }

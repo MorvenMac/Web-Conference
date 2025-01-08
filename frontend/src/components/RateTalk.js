@@ -10,11 +10,10 @@ export default function RateTalk({ talkId, talkTitle }) {
         const feedback = {
             talkId,
             talkTitle,
-            rating: parseInt(localStorage.getItem(talkId), 10) || 0, // Convert rating to a number
+            rating: localStorage.getItem(talkId) || 0,
             comment,
             submittedAt: new Date().toISOString(),
         };
-
         console.log("Submitted Feedback:", feedback);
         setSubmitted(true);
         setComment("");
