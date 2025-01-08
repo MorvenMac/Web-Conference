@@ -10,7 +10,7 @@ function Home() {
 
   // Fetch all talks from the backend
   useEffect(() => {
-    const backendUrl = process.env.REACT_APP_BACKEND_URL; // Use the environment variable
+    const backendUrl = process.env.REACT_APP_BACKEND_URL;
     if (!backendUrl) {
       console.error("Backend URL is not defined. Please check your environment variables.");
       return;
