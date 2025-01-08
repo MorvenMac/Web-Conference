@@ -10,8 +10,19 @@ function Home() {
 
   // Fetch all talks from the backend
   useEffect(() => {
-    fetch("http://localhost:3001/talks")
-      .then((response) => response.json())
+    const backendUrl = process.env.REACT_APP_BACKEND_URL; // Use the environment variable
+    if (!backendUrl) {
+      console.error("Backend URL is not defined. Please check your environment variables.");
+      return;
+    }
+
+    fetch(`${backendUrl}/talks`) // Use dynamic URL
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+      })
       .then((data) => setTalks(data))
       .catch((err) => console.error("Error fetching talks:", err));
   }, []);
