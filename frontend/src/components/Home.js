@@ -16,7 +16,7 @@ function Home() {
       return;
     }
 
-    fetch(`${backendUrl}`) // Use dynamic URL
+    fetch(`${backendUrl}/talks`) // Use dynamic URL
       .then((response) => {
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);

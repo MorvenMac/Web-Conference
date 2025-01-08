@@ -6,7 +6,7 @@ const useFetchData = () => {
 
   const fetchData = useCallback(() => {
     const url = process.env.REACT_APP_BACKEND_URL;  // Replace with your talks API URL
-    fetch(url)
+    /*fetch(url)
       .then((response) => response.json())
       .then((incomingData) => {
         console.log(incomingData);  // You can log it to see the structure
@@ -16,7 +16,11 @@ const useFetchData = () => {
       .catch((err) => {
         console.error(err);  // Handle any fetch errors
         setStatus('error');  // Change status to error in case of failure
-      });
+      });*/
+    fetch(`${backendUrl}/talks`) // Append `/talks` dynamically
+      .then((response) => response.json())
+      .then((data) => setTalks(data))
+      .catch((err) => console.error("Error fetching talks:", err));
   }, []);  // Empty dependency array ensures fetchData is only created once
 
   useEffect(() => {
