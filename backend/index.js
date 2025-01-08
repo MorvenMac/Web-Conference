@@ -7,7 +7,7 @@ const port = process.env.PORT || 4000;
 const app = express();
 // Allow requests from the frontend Render URL
 const corsOptions = {
-  origin: ['https://web-conference-1.onrender.com/'], // Replace with your frontend Render URL
+  origin: ['https://web-conference-1.onrender.com'], // Replace with your frontend Render URL
   credentials: true,
 };
 
