@@ -5,7 +5,7 @@ const useFetchData = () => {
   const [talks, setTalks] = useState([]);  // Change state to store talks data
 
   const fetchData = useCallback(() => {
-    const url = "http://localhost:3001/talks";  // Replace with your talks API URL
+    const url = process.env.REACT_APP_BACKEND_URL;  // Replace with your talks API URL
     fetch(url)
       .then((response) => response.json())
       .then((incomingData) => {
