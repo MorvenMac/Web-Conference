@@ -1,5 +1,5 @@
 import React from "react";
-import Star from "./Star";
+import Star from "./star";
 import { useLocalStorage } from "./useLocalStorage";
 
 export default function StarRating({ ratingKey, totalStars = 5, defaultRating = 0 }) {
