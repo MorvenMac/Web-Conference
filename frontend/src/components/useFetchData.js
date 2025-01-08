@@ -17,7 +17,7 @@ const useFetchData = () => {
         console.error(err);  // Handle any fetch errors
         setStatus('error');  // Change status to error in case of failure
       });*/
-    fetch(`${backendUrl}/talks`) // Append `/talks` dynamically
+    fetch(`${backendUrl.replace(/\/$/, '')}/talks`)  // Remove trailing slash from base URL
       .then((response) => response.json())
       .then((data) => setTalks(data))
       .catch((err) => console.error("Error fetching talks:", err));
