@@ -24,6 +24,13 @@ const TalkList = ({
 
     const sortedTalks = sortTalksByTime(talks);
 
+    const calculateAverageRating = (ratings) => {
+        if (!ratings || ratings.length === 0) return "No ratings yet";
+        const average = ratings.reduce((sum, r) => sum + r, 0) / ratings.length;
+        return average.toFixed(1); // One decimal place
+    };
+
+
     const toggleDescription = (talkId) => {
         setExpandedTalkId(expandedTalkId === talkId ? null : talkId);
     };
@@ -56,6 +63,10 @@ const TalkList = ({
                                 <p className="card-text">
                                     <strong>Session:</strong> {talk.session}
                                 </p>
+                                <p>
+                                    <strong>Average Rating:</strong> {calculateAverageRating(talk.ratings)}
+                                </p>
+
                                 {expandedTalkId === talk.id ? (
                                     <>
                                         <TalkDetail talk={talk} />
